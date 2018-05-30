@@ -178,3 +178,6 @@ typings/
 
 # next.js build output
 .next
+
+# tern
+.tern-project
