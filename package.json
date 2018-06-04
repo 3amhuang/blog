@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test.js specified\" && exit 1",
-    "start": "npm run dev & nodemon server/ --exec babel-node",
+    "start": "npm run dev & nodemon server/ --config nodemon.json --exec babel-node",
     "dev": "webpack-dev-server --mode=development --config config/webpack.dev.conf.js",
     "build": "webpack --config config/webpack.prod.conf.js"
   },
@@ -22,7 +22,9 @@
   "dependencies": {
     "antd": "^3.5.4",
     "axios": "^0.18.0",
+    "classnames": "^2.2.5",
     "history": "^4.7.2",
+    "jsonwebtoken": "^8.2.2",
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.0.0",
@@ -51,6 +53,7 @@
     "autoprefixer": "^8.5.1",
     "babel-loader": "^8.0.0-beta.3",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.0",

@@ -1,2 +1,4 @@
-export const APP_LOAD = 'APP_LOAD'
-export const REDIRECT = 'REDIRECT'
+export default {
+  APP_LOAD: 'APP_LOAD',
+  REDIRECT: 'REDIRECT'
+}

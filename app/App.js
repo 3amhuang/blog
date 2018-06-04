@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader'
 import { store } from '@/store'
 import { push } from 'react-router-redux'
 import { APP_LOAD, REDIRECT } from '@/store/actionTypes'
+import style from '@/assets/index.css'
 
 import Login from '@/views/Login'
 import Index from '@/views/Index'
@@ -37,7 +38,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={style}>
         <Switch>
           <Route exact path='/' component={Index}></Route>
           <Route path='/login' component={Login}></Route>

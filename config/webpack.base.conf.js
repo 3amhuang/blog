@@ -1,17 +1,17 @@
 'use strict'
 const path = require('path')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: './app/index.js',
   output: {
-    path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../dist'),
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -27,23 +27,47 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
+            presets: ['@babel/env']
           }
         }
       },
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader', options: { sourceMap: true }},
-          { loader: 'css-loader' },
+          MiniCssExtractPlugin.loader,
+          // { loader: 'style-loader', options: { sourceMap: true }},
+          { loader: 'css-loader', options: {
+            modules: true,
+            sourceMap: true,
+            minimize: true
+          }},
           { loader: 'postcss-loader' }
         ]
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
     }),
-    new CleanWebpackPlugin(['public'])
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          priority: 10,
+          chunks: 'initial'
+        },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          minChunks: 2,
+          enforce: true,
+        }
+      }
+    }
+  }
 }

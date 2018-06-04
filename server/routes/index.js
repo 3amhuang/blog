@@ -1,15 +1,16 @@
 import koaRouter from 'koa-router'
+import userRouter from './user'
+import basicRouter from './basic'
 
-const base = 'api'
 const router = new koaRouter()
 
-router.prefix(`/${base}`)
+const routers = [
+  basicRouter,
+  userRouter,
+]
 
-router.get('/data', (ctx, next) => {
-  ctx.type = 'application/json'
-  ctx.response.body = {
-    data: 'hello world'
-  }
+routers.forEach(route => {
+  router.use(route.routes(), route.allowedMethods())
 })
 
 export default router

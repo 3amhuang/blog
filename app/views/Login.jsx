@@ -7,7 +7,6 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
-    console.log('login')
     this.timerID = setInterval(() => {
       this.tick()
     }, 1000)

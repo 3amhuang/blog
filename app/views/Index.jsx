@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from '@/components/navbar/Navbar'
+import Sidebar from '@/components/sidebar/Sidebar'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => ({ ...state.auth })
@@ -10,7 +12,8 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        Index Page
+        <Navbar />
+        <Sidebar />
       </div>
     )
   }
