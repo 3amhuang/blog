@@ -3,7 +3,8 @@ import Navbar from '@/components/navbar/Navbar'
 import Sidebar from '@/components/sidebar/Sidebar'
 import { connect } from 'react-redux'
 
-const mapStateToProps = state => ({ ...state.auth })
+const mapStateToProps = state => ({
+})
 
 const mapDispatchToProps = dispatch => ({
 })
