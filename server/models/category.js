@@ -17,12 +17,23 @@ module.exports = (sequelize, DataTypes) => {
     categoryDesc: {
       type: DataTypes.STRING,
       field: 'category_desc'
+    },
+    createdAt:{
+      type: DataTypes.DATE,
+      field: 'created_at'
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: 'updated_at'
+    },
+    deletedAt: {
+      type: DataTypes.DATE,
+      field: 'deleted_at'
     }
   }, {
     paranoid: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-    deletedAt: 'deleted_at',
+    timestamps: false,
+    underscored: true,
     tableName: 'article_category'
   })
 
