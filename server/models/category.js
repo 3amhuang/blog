@@ -20,12 +20,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     paranoid: true,
-    underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
     tableName: 'article_category'
   })
+
+  ArticleCategory.associate = (models) => {
+    ArticleCategory.hasMany(models.Article, { foreignKey: 'categoryId' })
+  }
 
   return ArticleCategory
 }

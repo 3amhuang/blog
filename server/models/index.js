@@ -28,4 +28,10 @@ fs
     database[model.name] = model
   })
 
+Object.keys(database).forEach(name => {
+  if ('associate' in database[name]) {
+    database[name].associate(database)
+  }
+})
+
 export default database

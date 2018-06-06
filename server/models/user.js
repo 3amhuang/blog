@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const user = sequelize.define('User', {
+  const User = sequelize.define('User', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.VIRTUAL,
       allowNull: false,
       validate: {
         notEmpty: true,
@@ -57,12 +57,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     paranoid: true,
-    underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
     tableName: 'user'
   })
 
-  return user
+  User.associate = (models) => {
+    User.hasMany(models.Article, { foreignKey: 'authorId' })
+  }
+
+  return User
 }

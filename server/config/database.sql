@@ -11,3 +11,12 @@ create table user (
   updated_time datetime,
   deleted_time datetime,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table article_category (
+  id int(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name varchar(255) NOT NULL,
+  category_desc varchar(255),
+  created_time datetime,
+  updated_time datetime,
+  deleted_time datetime,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

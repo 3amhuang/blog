@@ -26,17 +26,15 @@ module.exports = (sequelize, DataTypes) => {
         len: [0, 140]
       }
     },
-    author: {
+    authorId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
+      field: 'author_id',
+      allowNull: false
     },
     categoryId: {
       type: DataTypes.INTEGER,
       field: 'category_id',
-      allowNull: false,
+      allowNull: false
     },
     isPublic: {
       type: DataTypes.INTEGER(3),
@@ -55,7 +53,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     paranoid: true,
-    underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
@@ -63,8 +60,14 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Article.associate = (models) => {
-    Article.belongsTo(models.User, { foreignKey: 'author' })
-    Article.hasMany(models.ArticleCategory, { as: 'Categories' })
+    Article.belongsTo(models.User, {
+      foreignKey: 'authorId',
+      as: 'author'
+    })
+    Article.belongsTo(models.ArticleCategory, {
+      foreignKey: 'categoryId',
+      as: 'category'
+    })
   }
 
   return Article

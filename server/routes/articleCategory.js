@@ -5,11 +5,11 @@ import controller from '../controllers/articleCategory'
 const api = 'category'
 const router = new koaRouter()
 
-router.prefix(`/${config.baseApi}/article/${api}`)
+router.prefix(`/${config.baseApi}/${api}`)
 
-router.get('/', controller.show)
+router.get('/', controller.find)
 router.post('/create', controller.create)
 router.post('/update', controller.update)
-router.post('/delete', controller.deleteCategory)
+router.post('/delete', controller.delete)
 
 export default router

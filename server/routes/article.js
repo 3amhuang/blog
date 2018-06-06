@@ -1,15 +1,17 @@
 import koaRouter from 'koa-router'
 import config from '../config'
-import controller from '../controllers/article'
+import articleController from '../controllers/article'
 
 const api = 'article'
 const router = new koaRouter()
 
 router.prefix(`/${config.baseApi}/${api}`)
 
-router.get('/', controller.show)
-router.post('/create', controller.create)
-router.post('/update', controller.update)
-router.post('/delete', controller.deleteArticle)
+router.get('/', articleController.find)
+router.get('/:id', articleController.findById)
+router.get('/all', articleController.all)
+router.post('/create', articleController.create)
+router.post('/update', articleController.update)
+router.post('/delete', articleController.delete)
 
 export default router

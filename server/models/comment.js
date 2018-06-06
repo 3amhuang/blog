@@ -5,10 +5,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      field: 'user_id'
-    },
     content: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,11 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
         len: [1, 255]
       }
-    },
-    articleId: {
-      type: DataTypes.INTEGER,
-      field: 'article_id',
-      allowNull: false
     },
     ip: {
       type: DataTypes.STRING,
@@ -35,7 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     paranoid: true,
-    underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
