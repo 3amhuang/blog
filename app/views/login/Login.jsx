@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { login } from '@/api'
 import style from './index.css'
 
@@ -31,8 +32,9 @@ class Login extends React.Component {
   async handleLogin (event) {
     event.preventDefault()
     const data = this.state
-    const res = await login(data)
-    console.log(res)
+    const response = await login(data)
+    if (response.data.status === 200) {
+    }
   }
 
   render () {

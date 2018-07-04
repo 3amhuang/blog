@@ -5,6 +5,13 @@ const success = message => {
   }
 }
 
+const failed = message => {
+  return {
+    status: 200,
+    message: message ? message : 'error'
+  }
+}
+
 const returnList = (data, message) => {
   return {
     status: 200,

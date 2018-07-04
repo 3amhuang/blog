@@ -14,8 +14,15 @@ module.exports = merge(base, {
   devServer: {
     contentBase: false,
     compress: true,
-    host: HOST || '192.168.133.128',
-    port: PORT || '8080'
+    host: HOST || 'localhost',
+    port: PORT || '8080',
+    proxy: {
+      '*': {
+        target: 'http://localhost:3000',
+        secure: false,
+        changeOrigin: true
+      }
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

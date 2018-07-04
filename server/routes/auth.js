@@ -1,10 +1,9 @@
 import koaRouter from 'koa-router'
-import { login } from '../controllers/auth.js'
+import controller from '../controllers/auth'
 
-const router = new koaRouter({
-  prefix: '/'
-})
+const router = new koaRouter()
+router.prefix('/auth')
 
-router.post('login', login)
+router.post('/login', controller.login)
 
 export default router

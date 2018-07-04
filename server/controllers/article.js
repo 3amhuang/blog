@@ -2,8 +2,6 @@ import models from '../models'
 import { returnList, success, badRequest, serverError } from '../utils'
 import Sequelize from 'sequelize'
 
-const Op = Sequelize.Op
-
 class ArticleController {
   /*
    *  Find article filtered by query string
