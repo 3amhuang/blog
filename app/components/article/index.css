@@ -1,0 +1,29 @@
+.article {
+  position: relative;
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid lightgray;
+  min-height: 100px;
+  border-left: none;
+  border-right: none;
+}
+.title {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+.title:hover {
+  cursor: pointer;
+  color: #409eff;
+}
+.date {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  color: lightgray;
+}
+.summary {
+  margin-top: 10px;
+  font-size: 16px;
+}

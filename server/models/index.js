@@ -15,7 +15,8 @@ const sequelize = new Sequelize({
   port: config.port,
   dialect: config.dialect,
   operatorsAliases: false,
-  pool: config.pool
+  pool: config.pool,
+  timezone: '+08:00'
 })
 
 fs

@@ -5,13 +5,17 @@ import style from './index.css'
 const mapStateToProps = state => ({
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = state => ({
 })
 
 class Navbar extends React.Component {
-  render () {
+  constructor (props) {
+    super(props)
+  }
+
+  render() {
     return (
-      <div className={style.navbar}>
+      <div className={ style.navbar }>
       </div>
     )
   }

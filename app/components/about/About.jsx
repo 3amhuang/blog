@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 const mapStateToProps = state => ({
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = state => ({
 })
 
-class Admin extends React.Component {
+class About extends React.Component {
   constructor (props) {
     super(props)
   }
@@ -18,4 +18,4 @@ class Admin extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Admin)
+export default connect(mapStateToProps, mapDispatchToProps)(About)

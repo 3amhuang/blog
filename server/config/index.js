@@ -1,3 +1,4 @@
 export default {
-  baseApi: 'api'
+  baseApi: 'api',
+  tokenSecret: ''
 }

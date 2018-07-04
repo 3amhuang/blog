@@ -7,8 +7,9 @@ import { push } from 'react-router-redux'
 import { APP_LOAD, REDIRECT } from '@/store/actionTypes'
 import style from '@/assets/index.css'
 
-import Login from '@/views/Login'
-import Index from '@/views/Index'
+import Login from '@/views/login/Login'
+import Admin from '@/views/admin/Admin'
+import Index from '@/views/index/Index'
 
 const mapStateToProps = state => {
   return {
@@ -42,6 +43,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Index}></Route>
           <Route path='/login' component={Login}></Route>
+          <Route path='/3am' component={Admin}></Route>
         </Switch>
       </div>
     )

@@ -1,13 +1,35 @@
 import models from '../models'
+import { returnList, success, badRequest, serverError } from '../utils'
+import Sequelize from 'sequelize'
 
-const show = async (ctx, next) => {
-  const user = await models.User.findById(1)
-  ctx.response.body = {
-    data: user
+const Op = Sequelize.Op
+
+class UserController {
+  async find (ctx) {
+    try {
+      const query = ctx.request.query
+    } catch (error) {
+      ctx.body = badRequest(error.name)
+    }
   }
-  await next()
+
+  async all (ctx) {
+  }
+
+  async findById (ctx) {
+  }
+
+  async create (ctx) {
+  }
+
+  async update (ctx) {
+  }
+
+  async delete (ctx) {
+  }
 }
 
-export default {
-  show,
+const checkExistence = async (id, model) => {
 }
+
+export default new UserController()

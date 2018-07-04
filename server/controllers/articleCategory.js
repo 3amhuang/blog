@@ -73,9 +73,9 @@ class ArticleCategoryController {
 }
 
 const isCategoryExist = async (name, model) => {
-  if (!name) return
+  if (!name) return false
   const result = await model.find({
-    where: { name: name }
+    where: { name, }
   })
   return result !== null
 }

@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -15,4 +16,5 @@ render(
       </Switch>
     </ConnectedRouter>
   </Provider>,
-  document.querySelector('#app'))
+  document.querySelector('#app')
+)

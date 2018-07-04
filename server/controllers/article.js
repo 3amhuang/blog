@@ -25,7 +25,7 @@ class ArticleController {
       })
       ctx.body = returnList(articles)
     } catch (error) {
-      ctx.body = badRequest(error.message)
+      ctx.body = badRequest(error.name)
     }
   }
 

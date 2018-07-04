@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '@/components/navbar/Navbar'
+import Navbar from '@/components/adminnav/Navbar'
 import Sidebar from '@/components/sidebar/Sidebar'
 import { connect } from 'react-redux'
 
@@ -9,8 +9,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 })
 
-class Index extends React.Component {
-  render() {
+class Admin extends React.Component {
+  constructor (props) {
+    super(props)
+  }
+
+  render () {
     return (
       <div>
         <Navbar />
@@ -20,4 +24,4 @@ class Index extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default connect(mapStateToProps, mapDispatchToProps)(Admin)

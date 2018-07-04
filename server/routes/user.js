@@ -1,5 +1,5 @@
 import koaRouter from 'koa-router'
-import user from '../controllers/user'
+import controller from '../controllers/user'
 import config from '../config'
 
 const api = 'user'
@@ -7,6 +7,6 @@ const router = new koaRouter()
 
 router.prefix(`/${config.baseApi}/${api}`)
 
-router.get('/', user.show)
+router.get('/', controller.find)
 
 export default router
